@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento Community/Enterprise Edition
+ *
+ * @category    Rotaryview
+ * @package     Rotaryview_Productview
+ * @copyright   Gev Rotem (http://rotaryview.com/)
+ */
+-->
+<config>
+    <modules>
+        <Rotaryview_Productview>
+            <version>1.0.0</version>
+        </Rotaryview_Productview>
+    </modules>
+    <frontend>
+        <routers>
+            <rotaryview_productview>
+                <use>standard</use>
+                <args>
+                    <module>Rotaryview_Productview</module>
+                    <frontName>productview</frontName>
+                </args>
+            </rotaryview_productview>
+        </routers>
+    </frontend>
+    <admin>
+         <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <rotaryview_productview before="Mage_Adminhtml">Rotaryview_Productview_Adminhtml</rotaryview_productview>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <rotaryview_productview module="Rotaryview_Productview">
+                    <file>rotaryview.xml</file>
+                </rotaryview_productview>
+            </updates>
+        </layout>
+    </adminhtml>
+    <frontend>
+        <layout>
+            <updates>
+                <rotaryview_productview module="Rotaryview_Productview">
+                    <file>rotaryview.xml</file>
+                </rotaryview_productview>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <rotaryview_productview>
+                <class>Rotaryview_Productview_Block</class>
+            </rotaryview_productview>
+            <adminhtml>
+                 <rewrite>
+                    <catalog_product_edit_tabs>Rotaryview_Productview_Block_Adminhtml_Catalog_Product_Edit_Tabs</catalog_product_edit_tabs>
+                 </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <rotaryview_productview>
+                <class>Rotaryview_Productview_Helper</class>
+            </rotaryview_productview>
+        </helpers>
+    </global>
+</config>

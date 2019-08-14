@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Rotaryview_Productview",
+    "type": "magento-module",
+    "license": "GNU-General-Public-License-(GPL)",
+    "homepage": "",
+    "description": "RotaryView helps online vendors increase sales, quickly, simply and fuss-free through the creative and effective use of 360° product presentations.",
+    "authors": [
+    {
+        "name": "Gev Rotem",
+        "email": "gev@rotaryview.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

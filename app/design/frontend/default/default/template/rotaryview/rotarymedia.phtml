@@ -1,0 +1,55 @@
+<?php
+$_product = $this->getProduct();
+$storeId = $_product->getStoreId();
+$token = base64_encode($_SERVER['SERVER_NAME'].'_magento_'.$storeId);
+$defaultToken = base64_encode($_SERVER['SERVER_NAME'].'_magento_0');
+?>
+<script type="text/javascript">
+$j = jQuery.noConflict();
+
+$j(document).ready(function(){
+var whiteBk = $j('<div style="position:relative;z-index:9999;width:265px;height:300px;background-color:#fff;"></div>');
+$j('.product-img-box').prepend(whiteBk);
+$j.ajax({
+		url: 'https://rotaryview.com/api/channels/magento/<?php echo $token; ?>/components/<?php echo $_product->getSku(); ?>',
+		cache: false,
+		type: 'GET',
+		success: function(data) {
+			if(data.result){
+				var pid = data.data.product_id;
+				var rvFrame = $j('<iframe src="https://rotaryview.com/player?id='+pid+'" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>').appendTo(whiteBk);
+				$j('.product-img-box .product-image').hide();
+			}else{
+				whiteBk.remove();
+				loadForDefaultStore();
+			}
+		},
+		error: function(data){
+				whiteBk.remove();
+				loadForDefaultStore();
+                },
+	});
+});
+function loadForDefaultStore()
+{
+	var whiteBk = $j('<div style="position:relative;z-index:9999;width:265px;height:300px;background-color:#fff;"></div>');
+	$j('.product-img-box').prepend(whiteBk);
+	$j.ajax({
+			url: 'https://rotaryview.com/api/channels/magento/<?php echo $defaultToken; ?>/components/<?php echo $_product->getSku(); ?>',
+			cache: false,
+			type: 'GET',
+			success: function(data) {
+				if(data.result){
+					var pid = data.data.product_id;
+					var rvFrame = $j('<iframe src="https://rotaryview.com/player?id='+pid+'" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>').appendTo(whiteBk);
+					$j('.product-img-box .product-image').hide();
+				}else{
+					whiteBk.remove();
+				}
+			},
+			error: function(data){
+	                  whiteBk.remove();
+	                },
+		});
+}
+</script>

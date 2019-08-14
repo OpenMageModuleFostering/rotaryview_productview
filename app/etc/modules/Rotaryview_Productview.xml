@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<Rotaryview_Productview>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Rotaryview_Productview>
+	</modules>
+</config>

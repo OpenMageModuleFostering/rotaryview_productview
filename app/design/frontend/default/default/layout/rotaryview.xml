@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	<default>
+	    <reference name="head">
+	         <action method="addJs"><script>jquery/jquery-1.10.2.min.js</script></action>
+	    </reference>
+	</default>
+	<catalog_product_view>
+      <reference name="content">
+         <block type="catalog/product_view_media" name="rotaryview" template="rotaryview/rotarymedia.phtml" />
+      </reference>	
+	</catalog_product_view>
+</layout>
