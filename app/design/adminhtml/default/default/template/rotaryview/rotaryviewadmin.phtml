@@ -2,8 +2,9 @@
 $product = $this->getProduct();
 $pid = $product->getSku();
 $storeId = $this->getStoreId();
-$token = base64_encode($_SERVER['SERVER_NAME'].'_magento_'.$storeId);
-$src = "https://rotaryview.com/magento/settings?compId=$pid&token=$token";
+$storeUrl = Mage::getStoreConfig('web/unsecure/base_url', $storeId);
+$token = base64_encode($storeUrl.'_magento_'.$storeId);
+$src = "https://rotaryview.com/channels/magento/settings?compId=$pid&token=$token";
 ?>
 <div style="width: 100%;max-width: 1024px;min-width: 500px;height:700px;">
 <iframe src="<?php echo $src; ?>" width="100%" height="100%" frameborder="0" scrolling="yes"></iframe>
