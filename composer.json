@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Rotaryview_Productview",
+    "name": "OpenMageModuleFostering\/Rotaryview_Productview",
     "type": "magento-module",
     "license": "GNU-General-Public-License-(GPL)",
     "homepage": "",
     "description": "Increase sales, easy, fast and free through the creative and effective use of 360&#xB0; product presentations. Simply shoot your products using our mobile app or your camera.",
     "authors": [
-    {
-        "name": "Gev Rotem",
-        "email": "gev@rotaryview.com"
-    }
-],
+        {
+            "name": "Gev Rotem",
+            "email": "gev@rotaryview.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
